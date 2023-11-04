@@ -4,6 +4,7 @@ using DataAccessLayer.Concrete;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccessLayer.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20231104082007_add_identity")]
+    partial class add_identity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -130,206 +133,6 @@ namespace DataAccessLayer.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
-                });
-
-            modelBuilder.Entity("EntityLayer.Concrete.EmlakDetay", b =>
-                {
-                    b.Property<int>("DetayID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("DetayID"));
-
-                    b.Property<string>("Cephe")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("DisOzellik")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("IcOzellik")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("KonutTipi")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Manzara")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Muhit")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Ulasim")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("DetayID");
-
-                    b.ToTable("EmlakDetays");
-                });
-
-            modelBuilder.Entity("EntityLayer.Concrete.EmlakIlan", b =>
-                {
-                    b.Property<int>("IlanID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IlanID"));
-
-                    b.Property<string>("Adres")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Baslik")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Fiyat")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Gorsel")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Il")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("IlanTarih")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Ilce")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Tanım")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("IlanID");
-
-                    b.ToTable("EmlakIlans");
-                });
-
-            modelBuilder.Entity("EntityLayer.Concrete.EmlakTipi", b =>
-                {
-                    b.Property<int>("TipID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("TipID"));
-
-                    b.Property<bool>("TipDurum")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("TipIsim")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("TipID");
-
-                    b.ToTable("EmlakTipis");
-                });
-
-            modelBuilder.Entity("EntityLayer.Concrete.IlanArazi", b =>
-                {
-                    b.Property<int>("ArazıID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ArazıID"));
-
-                    b.Property<int>("AdaNo")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("Gabari")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<string>("ImarDurumu")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<decimal>("Kaks")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<bool>("KatKarsiligi")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("KrediyeUygunluk")
-                        .HasColumnType("bit");
-
-                    b.Property<int>("PaftaNo")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ParselNo")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("Takas")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("TapuDurumu")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<decimal>("m2")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<int>("m2Price")
-                        .HasColumnType("int");
-
-                    b.HasKey("ArazıID");
-
-                    b.ToTable("IlanArazis");
-                });
-
-            modelBuilder.Entity("EntityLayer.Concrete.IlanKonut", b =>
-                {
-                    b.Property<int>("KonutID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("KonutID"));
-
-                    b.Property<int>("Aidat")
-                        .HasColumnType("int");
-
-                    b.Property<int>("BanyoSayisi")
-                        .HasColumnType("int");
-
-                    b.Property<int>("BinaYasi")
-                        .HasColumnType("int");
-
-                    b.Property<int>("BrütM2")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("EsyaliMi")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("IslendiMi")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Isıtma")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("KatSayisi")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("KrediyeUygunMu")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("KullanımDurumu")
-                        .HasColumnType("bit");
-
-                    b.Property<int>("NetM2")
-                        .HasColumnType("int");
-
-                    b.Property<string>("OdaSayısı")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("SiteAdi")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("SiteIciMi")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("Takas")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("TapuDurumu")
-                        .HasColumnType("bit");
-
-                    b.HasKey("KonutID");
-
-                    b.ToTable("IlanKonuts");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>

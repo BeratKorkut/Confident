@@ -14,13 +14,13 @@ namespace DataAccessLayer.Concrete
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("server=BERATKORKUT\\SQLEXPRESS;database=ConfidentDb; integrated security=true;");
+            optionsBuilder.UseSqlServer("server=BERATKORKUT\\SQLEXPRESS;database=ConfidentDb; integrated security=true;TrustServerCertificate=True");
         }
 
-        public DbSet<EmlakDetay>? emlakDetays { get; set; }
-        public DbSet<EmlakIlan>? emlakIlans { get; set; }
-        public DbSet<EmlakTipi>? emlakTipis { get; set; }
-        public DbSet<IlanArazi>? ilanArazis { get; set; }
-        public DbSet<IlanKonut>? ilanKonuts { get; set; }
+        public DbSet<EmlakDetay>? EmlakDetays { get; set; }
+        public DbSet<EmlakIlan>? EmlakIlans { get; set; }
+        public DbSet<EmlakTipi>? EmlakTipis { get; set; }
+        public DbSet<IlanArazi>? IlanArazis { get; set; }
+        public DbSet<IlanKonut>? IlanKonuts { get; set; }
     }
 }

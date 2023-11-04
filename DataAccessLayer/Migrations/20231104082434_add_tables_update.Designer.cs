@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccessLayer.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20231104073559_add_tables")]
-    partial class add_tables
+    [Migration("20231104082434_add_tables_update")]
+    partial class add_tables_update
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -166,7 +166,7 @@ namespace DataAccessLayer.Migrations
 
                     b.HasKey("DetayID");
 
-                    b.ToTable("emlakDetays");
+                    b.ToTable("EmlakDetays");
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.EmlakIlan", b =>
@@ -203,7 +203,7 @@ namespace DataAccessLayer.Migrations
 
                     b.HasKey("IlanID");
 
-                    b.ToTable("emlakIlans");
+                    b.ToTable("EmlakIlans");
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.EmlakTipi", b =>
@@ -222,7 +222,7 @@ namespace DataAccessLayer.Migrations
 
                     b.HasKey("TipID");
 
-                    b.ToTable("emlakTipis");
+                    b.ToTable("EmlakTipis");
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.IlanArazi", b =>
@@ -271,7 +271,7 @@ namespace DataAccessLayer.Migrations
 
                     b.HasKey("ArazıID");
 
-                    b.ToTable("ılanArazis");
+                    b.ToTable("IlanArazis");
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.IlanKonut", b =>
@@ -332,7 +332,7 @@ namespace DataAccessLayer.Migrations
 
                     b.HasKey("KonutID");
 
-                    b.ToTable("ılanKonuts");
+                    b.ToTable("IlanKonuts");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
