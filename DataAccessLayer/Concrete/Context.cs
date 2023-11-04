@@ -20,7 +20,7 @@ namespace DataAccessLayer.Concrete
         public DbSet<EmlakDetay>? emlakDetays { get; set; }
         public DbSet<EmlakIlan>? emlakIlans { get; set; }
         public DbSet<EmlakTipi>? emlakTipis { get; set; }
-        public DbSet<IlanArazi>? ılanArazis { get; set; }
-        public DbSet<IlanKonut>? ılanKonuts { get; set; }
+        public DbSet<IlanArazi>? ilanArazis { get; set; }
+        public DbSet<IlanKonut>? ilanKonuts { get; set; }
     }
 }
