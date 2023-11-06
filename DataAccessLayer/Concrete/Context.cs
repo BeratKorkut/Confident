@@ -17,10 +17,10 @@ namespace DataAccessLayer.Concrete
             optionsBuilder.UseSqlServer("server=BERATKORKUT\\SQLEXPRESS;database=ConfidentDb; integrated security=true;TrustServerCertificate=True");
         }
 
-        public DbSet<EmlakDetay>? EmlakDetays { get; set; }
-        public DbSet<EmlakIlan>? EmlakIlans { get; set; }
-        public DbSet<EmlakTipi>? EmlakTipis { get; set; }
-        public DbSet<IlanArazi>? IlanArazis { get; set; }
-        public DbSet<IlanKonut>? IlanKonuts { get; set; }
+        public DbSet<Detail>? EmlakDetays { get; set; }
+        public DbSet<Advert>? EmlakIlans { get; set; }
+        public DbSet<EntityLayer.Concrete.Typee>? EmlakTipis { get; set; }
+        public DbSet<AraziAdv>? IlanArazis { get; set; }
+        public DbSet<KonutAdv>? IlanKonuts { get; set; }
     }
 }

@@ -1,3 +1,4 @@
+using BusinessLayer.Container;
 using DataAccessLayer.Concrete;
 using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -15,31 +16,33 @@ builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<Contex
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
 
+builder.Services.ContainerDependencies();
 
-builder.Services.AddMvc(config =>
-{
-    var policy = new AuthorizationPolicyBuilder()
-        .RequireAuthenticatedUser()
-        .Build();
-    config.Filters.Add(new AuthorizeFilter(policy));
-});
 
-builder.Services.AddAuthentication(
-    CookieAuthenticationDefaults.AuthenticationScheme)
-    .AddCookie(x =>
-    {
-        x.LoginPath = "/Login/Index";
-    });
+//builder.Services.AddMvc(config =>
+//{
+//    var policy = new AuthorizationPolicyBuilder()
+//        .RequireAuthenticatedUser()
+//        .Build();
+//    config.Filters.Add(new AuthorizeFilter(policy));
+//});
 
-builder.Services.ConfigureApplicationCookie(options =>
-{
-    //Cookie settings
-    options.Cookie.HttpOnly = true;
-    options.ExpireTimeSpan = TimeSpan.FromDays(100);
-    options.AccessDeniedPath = new PathString("/Login/AccessDenied/");
-    options.LoginPath = "/Login/Index/";
-    options.SlidingExpiration = true;
-});
+//builder.Services.AddAuthentication(
+//    CookieAuthenticationDefaults.AuthenticationScheme)
+//    .AddCookie(x =>
+//    {
+//        x.LoginPath = "/Login/Index";
+//    });
+
+//builder.Services.ConfigureApplicationCookie(options =>
+//{
+//    //Cookie settings
+//    options.Cookie.HttpOnly = true;
+//    options.ExpireTimeSpan = TimeSpan.FromDays(100);
+//    options.AccessDeniedPath = new PathString("/Login/AccessDenied/");
+//    options.LoginPath = "/Login/Index/";
+//    options.SlidingExpiration = true;
+//});
 builder.Services.AddMvc();
 
 
