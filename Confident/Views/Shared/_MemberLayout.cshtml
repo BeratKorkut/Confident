@@ -1,0 +1,32 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+
+@await Component.InvokeAsync("_MemberHeaderPartial")
+
+
+<body>
+
+    <div id="wrapper">
+
+        @await Component.InvokeAsync("_MemberNavbarPartial")
+        
+
+        <div id="page-wrapper" class="gray-bg">
+
+            @RenderBody()
+            
+
+            @await Component.InvokeAsync("_MemberFooterPartial")
+
+        </div>
+    </div>
+
+    @await Component.InvokeAsync("_MemberScriptPartial")
+
+</body>
+
+</html>

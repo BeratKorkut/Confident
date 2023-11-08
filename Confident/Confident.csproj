@@ -9,6 +9,7 @@
   <ItemGroup>
     <PackageReference Include="FluentValidation" Version="11.8.0" />
     <PackageReference Include="FluentValidation.AspNetCore" Version="11.3.0" />
+    <PackageReference Include="Microsoft.AspNet.Identity.Core.tr" Version="2.2.3" />
     <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.1.39" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.13" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="7.0.13" />
@@ -33,7 +34,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ViewComponents\About\" />
+    <Folder Include="Areas\Member\Data\" />
+    <Folder Include="Areas\Member\Models\" />
   </ItemGroup>
 
 </Project>
