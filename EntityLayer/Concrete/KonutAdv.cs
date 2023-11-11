@@ -11,21 +11,30 @@ namespace EntityLayer.Concrete
     {
         [Key]
         public int KonutID { get; set; }
+        public string? Baslik { get; set; }
+        public string? Fiyat { get; set; }
+        public string? Gorsel { get; set; }
+        public string? Il { get; set; }
+        public string? Ilce { get; set; }
+        public string? Adres { get; set; }
+        public string? Tanım { get; set; }
+        public DateTime IlanTarih { get; set; }
+
         public int BrütM2 { get; set; }
         public int NetM2 { get; set; }
         public string? OdaSayısı { get; set; }
-        public int BinaYasi { get; set; }
-        public int KatSayisi { get; set; }
+        public int? BinaYasi { get; set; }
+        public int? KatSayisi { get; set; }
         public string? Isıtma { get; set; }
-        public int BanyoSayisi { get; set; }
-        public bool EsyaliMi { get; set; }
-        public bool KullanımDurumu { get; set; }
-        public bool SiteIciMi { get; set; }
+        public int? BanyoSayisi { get; set; }
+        public bool? EsyaliMi { get; set; }
+        public bool? KullanımDurumu { get; set; }
+        public bool? SiteIciMi { get; set; }
         public string? SiteAdi { get; set; }
-        public int Aidat { get; set; }
-        public bool KrediyeUygunMu { get; set; }
-        public bool TapuDurumu { get; set; }
-        public bool Takas { get; set; }
+        public int? Aidat { get; set; }
+        public bool? KrediyeUygunMu { get; set; }
+        public bool? TapuDurumu { get; set; }
+        public bool? Takas { get; set; }
         public string? IslendiMi { get; set; }//satıldı veya kiralandı gibi
     }
 }

@@ -4,6 +4,7 @@ using DataAccessLayer.Concrete;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccessLayer.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20231108103541_mig_update_tables")]
+    partial class mig_update_tables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -30,18 +33,41 @@ namespace DataAccessLayer.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IlanID"));
 
-                    b.Property<string>("KiralikSatilik")
+                    b.Property<string>("Adres")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Tip")
+                    b.Property<string>("Baslik")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("TipDetay")
+                    b.Property<string>("Fiyat")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Gorsel")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Il")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("IlanTarih")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Ilce")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Tanım")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("TipID")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("TypeeTipID")
+                        .HasColumnType("int");
 
                     b.HasKey("IlanID");
 
-                    b.ToTable("EMLAKILAN");
+                    b.HasIndex("TypeeTipID");
+
+                    b.ToTable("EMLAKİLAN");
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.AppRole", b =>
@@ -168,29 +194,8 @@ namespace DataAccessLayer.Migrations
                     b.Property<int?>("AdaNo")
                         .HasColumnType("int");
 
-                    b.Property<string>("Adres")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Baslik")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Fiyat")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<decimal?>("Gabari")
                         .HasColumnType("decimal(18,2)");
-
-                    b.Property<string>("Gorsel")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Il")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("IlanTarih")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Ilce")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ImarDurumu")
                         .HasColumnType("nvarchar(max)");
@@ -213,9 +218,6 @@ namespace DataAccessLayer.Migrations
                     b.Property<bool?>("Takas")
                         .HasColumnType("bit");
 
-                    b.Property<string>("Tanım")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("TapuDurumu")
                         .HasColumnType("nvarchar(max)");
 
@@ -227,7 +229,7 @@ namespace DataAccessLayer.Migrations
 
                     b.HasKey("ArazıID");
 
-                    b.ToTable("ILANARAZI");
+                    b.ToTable("ILANARAZİ");
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.Detail", b =>
@@ -272,17 +274,11 @@ namespace DataAccessLayer.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("KonutID"));
 
-                    b.Property<string>("Adres")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int?>("Aidat")
                         .HasColumnType("int");
 
                     b.Property<int?>("BanyoSayisi")
                         .HasColumnType("int");
-
-                    b.Property<string>("Baslik")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("BinaYasi")
                         .HasColumnType("int");
@@ -292,21 +288,6 @@ namespace DataAccessLayer.Migrations
 
                     b.Property<bool?>("EsyaliMi")
                         .HasColumnType("bit");
-
-                    b.Property<string>("Fiyat")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Gorsel")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Il")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("IlanTarih")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Ilce")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("IslendiMi")
                         .HasColumnType("nvarchar(max)");
@@ -338,15 +319,31 @@ namespace DataAccessLayer.Migrations
                     b.Property<bool?>("Takas")
                         .HasColumnType("bit");
 
-                    b.Property<string>("Tanım")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<bool?>("TapuDurumu")
                         .HasColumnType("bit");
 
                     b.HasKey("KonutID");
 
                     b.ToTable("ILANKONUT");
+                });
+
+            modelBuilder.Entity("EntityLayer.Concrete.Typee", b =>
+                {
+                    b.Property<int>("TipID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("TipID"));
+
+                    b.Property<bool>("TipDurum")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("TipIsim")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("TipID");
+
+                    b.ToTable("EMLAKTİP");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
@@ -452,6 +449,15 @@ namespace DataAccessLayer.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("EntityLayer.Concrete.Advert", b =>
+                {
+                    b.HasOne("EntityLayer.Concrete.Typee", "Typee")
+                        .WithMany("Adverts")
+                        .HasForeignKey("TypeeTipID");
+
+                    b.Navigation("Typee");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
                 {
                     b.HasOne("EntityLayer.Concrete.AppRole", null)
@@ -501,6 +507,11 @@ namespace DataAccessLayer.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("EntityLayer.Concrete.Typee", b =>
+                {
+                    b.Navigation("Adverts");
                 });
 #pragma warning restore 612, 618
         }

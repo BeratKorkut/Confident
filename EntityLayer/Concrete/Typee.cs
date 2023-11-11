@@ -7,11 +7,13 @@ using System.Threading.Tasks;
 
 namespace EntityLayer.Concrete
 {
-    public class Typee
+    public class Typee //ŞUAN KULLANILMIYOR
     {
         [Key]
         public int TipID { get; set; }
         public string? TipIsim { get; set; }
         public bool TipDurum { get; set; }
+
+        public List<Advert>? Adverts { get; set; }
     }
 }
