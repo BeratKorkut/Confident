@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdvertLayout.cshtml";
+}
+
+<link rel="stylesheet" href="~/Login-Template/css/style.css" type="text/css" media="all" />
+<section class="w3l-form-36">
+	<div class="form-36-mian section-gap" style="background-image:linear-gradient(to right, rgba(0, 0, 0, 0.85), rgba(255, 255, 255, 0)), url(/Login-Template/images/cover-image-55.jpg)">
+		<div class="wrapper">
+			<div class="form-inner-cont">
+				<h3>Personel Giriş</h3>
+
+
+				<form action="#" method="post" class="signin-form"> @*TAG HELPER İLE YAZILACAK BURALAR*@
+					<div class="form-input">
+						<span class="fa fa-envelope-o" aria-hidden="true"></span> <input type="email" name="email" placeholder="Mail Adresi" required />
+					</div>
+					<div class="form-input">
+						<span class="fa fa-key" aria-hidden="true"></span> <input type="password" name="password" placeholder="Şifre" required />
+					</div>
+					<div class="login-remember d-grid">
+						<label class="check-remaind">
+							<input type="checkbox">
+							<span class="checkmark"></span>
+							<p class="remember">Beni Hatırla</p>
+						</label>
+						<button class="btn btn-outline-dark">Giriş</button>
+					</div>
+					<div class="new-signup" >
+						<a href="#reload" style="color:#091A23;font-family: 'Kumbh Sans', sans-serif;" class="signuplink">Şifremi unuttum?</a>
+					</div>
+				</form>
+
+
+				<p class="signup">Bir hesabın yok mu? <a href="/Register/Index/" class="signuplink">Kayıt Ol</a></p>
+			</div>
+		</div>
+	</div>
+</section>
+

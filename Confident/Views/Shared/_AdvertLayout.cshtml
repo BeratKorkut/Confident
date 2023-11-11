@@ -1,0 +1,39 @@
+﻿@{
+    Layout = null;
+}
+
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+-->
+<!doctype html>
+<html lang="en">
+
+<!--header-->
+@await Component.InvokeAsync("_HeaderPartial")
+<!--/header-->
+
+<body>
+
+    <!--navbar-->
+    @await Component.InvokeAsync("_NavbarPartial")
+    <!--/navbar-->
+    @RenderBody()
+
+    <!-- move top -->
+    <button onclick="topFunction()" id="movetop" title="Go to top">
+        &#10548;
+    </button>
+
+    <!--script-->
+    @await Component.InvokeAsync("_ScriptPartial")
+    <!--/script-->
+
+    <!--footer-->
+    @await Component.InvokeAsync("_FooterPartial")
+    <!--/footer-->
+    @RenderSection("ScriptSection", false)
+</body>
+
+</html>
+

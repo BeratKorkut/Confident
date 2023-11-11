@@ -13,5 +13,6 @@ namespace EntityLayer.Concrete
         public string? Soyisim { get; set; }
         public string? Sifre { get; set; }
         public string? Pozisyon { get; set; }
+        public bool Status { get; set; }
     }
 }
